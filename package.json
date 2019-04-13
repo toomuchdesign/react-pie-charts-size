@@ -16,21 +16,21 @@
   },
   "size-limit": [
     {
-      "path": "recharts.js",
+      "path": "src/recharts.js",
       "ignore": [
         "react",
         "react-dom"
       ]
     },
     {
-      "path": "victoryPie.js",
+      "path": "src/victoryPie.js",
       "ignore": [
         "react",
         "react-dom"
       ]
     },
     {
-      "path": "reactMinimalPieChart.js",
+      "path": "src/reactMinimalPieChart.js",
       "ignore": [
         "react",
         "react-dom"
