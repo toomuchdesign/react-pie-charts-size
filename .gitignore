@@ -1,0 +1,7 @@
+# OS generated files
+.*
+*.db
+*.log
+node_modules
+!.editorconfig
+!.gitignore
