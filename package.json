@@ -4,12 +4,12 @@
   "description": "Measure bundle sizes of the main React pie charts",
   "main": "index.js",
   "dependencies": {
-    "@size-limit/preset-small-lib": "^2.2.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-minimal-pie-chart": "^6.0.0",
+    "@size-limit/preset-big-lib": "^3.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-minimal-pie-chart": "^6.0.1",
     "recharts": "^1.8.5",
-    "victory-pie": "^33.1.6"
+    "victory-pie": "^34.0.0"
   },
   "scripts": {
     "size": "size-limit"
@@ -38,5 +38,6 @@
     }
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
