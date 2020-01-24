@@ -1,10 +1,15 @@
 import React from "react";
-import {Pie, PieChart} from "recharts";
+import { Pie, PieChart } from "recharts";
 
 export default function Test() {
   return React.createElement(
     PieChart,
-    null,
-    React.createElement(Pie)
+    React.createElement(Pie, {
+      data: [
+        { name: "Cats", value: 35 },
+        { name: "Dogs", value: 40 },
+        { name: "Birds", value: 55 }
+      ]
+    })
   );
 }
