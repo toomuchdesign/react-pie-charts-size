@@ -1,9 +1,14 @@
 const resolve = require("path").resolve;
-const mergeWith = require("lodash.mergewith");
 const mapValues = require("lodash.mapvalues");
 const sizeLimit = require("size-limit");
 const presetBigLib = require("@size-limit/preset-big-lib");
 const NUMBER_OF_RUNS = 10;
+const IGNORE = ["react", "react-dom", "prop-types"];
+const {
+  sumObjectValues,
+  subtractObjectValues,
+  formatResult
+} = require("./utils");
 const getBenchmark = filename => resolve(__dirname, "benchmarks", filename);
 const benchmarks = [
   {
@@ -28,14 +33,6 @@ const benchmarks = [
   }
 ];
 
-function sumObjectValues(a = 0, b = 0) {
-  return a + b;
-}
-function subtractObjectValues(a, b) {
-  if (a === undefined) return b;
-  return a - b;
-}
-
 async function runBenchmark({ name, filePath }) {
   const results = [];
   console.log(`\nRun "${name}" benchmark:`);
@@ -43,15 +40,13 @@ async function runBenchmark({ name, filePath }) {
     try {
       console.log(`${results.length + 1} times/${NUMBER_OF_RUNS}`);
       const result = await sizeLimit([presetBigLib], {
-        checks: [
-          { path: filePath, ignore: ["react", "react-dom", "prop-types"] }
-        ]
+        checks: [{ path: filePath, ignore: IGNORE }]
       });
       results.push(result[0]);
     } catch (e) {}
   }
 
-  const sum = mergeWith({}, ...results, sumObjectValues);
+  const sum = sumObjectValues(...results);
   const average = mapValues(sum, value => value / NUMBER_OF_RUNS);
   return average;
 }
@@ -61,7 +56,7 @@ async function runAllBenchmarks() {
   for (const benchmark of benchmarks) {
     const result = await runBenchmark(benchmark);
     results.push({
-      name: benchmark.name,
+      library: benchmark.name,
       result
     });
   }
@@ -70,15 +65,14 @@ async function runAllBenchmarks() {
   const others = [...results].slice(1);
   const netResults = others.map(entry => ({
     ...entry,
-    result: mergeWith(
-      {},
-      entry.result,
-      boilerplate.result,
-      subtractObjectValues
-    )
+    result: subtractObjectValues(entry.result, boilerplate.result)
+  }));
+  const formattedResults = [boilerplate, ...netResults].map(entry => ({
+    ...entry,
+    result: formatResult(entry.result)
   }));
 
-  console.log([boilerplate, ...netResults]);
+  console.log(formattedResults);
 }
 
 runAllBenchmarks();

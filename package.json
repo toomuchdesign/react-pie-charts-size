@@ -17,8 +17,14 @@
     "victory-pie": "^34.0.0"
   },
   "scripts": {
-    "size": "node ./index.js"
+    "size": "node ./index.js",
+    "siz": "size-limit"
   },
+  "size-limit": [
+    {
+      "path": "./benchmarks/empty.js"
+    }
+  ],
   "author": "",
   "license": "ISC"
 }
