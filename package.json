@@ -19,21 +19,24 @@
       "path": "src/recharts.js",
       "ignore": [
         "react",
-        "react-dom"
+        "react-dom",
+        "prop-types"
       ]
     },
     {
       "path": "src/victoryPie.js",
       "ignore": [
         "react",
-        "react-dom"
+        "react-dom",
+        "prop-types"
       ]
     },
     {
       "path": "src/reactMinimalPieChart.js",
       "ignore": [
         "react",
-        "react-dom"
+        "react-dom",
+        "prop-types"
       ]
     }
   ],

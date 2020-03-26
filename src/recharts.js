@@ -9,7 +9,8 @@ export default function Test() {
         { name: "Cats", value: 35 },
         { name: "Dogs", value: 40 },
         { name: "Birds", value: 55 }
-      ]
+      ],
+      dataKey: "value"
     })
   );
 }
