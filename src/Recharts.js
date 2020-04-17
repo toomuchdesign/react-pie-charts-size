@@ -1,16 +1,32 @@
 import React from "react";
-import { Pie, PieChart } from "recharts";
+import { ResponsiveContainer, Pie, PieChart, Cell } from "recharts";
 
-export default function Test() {
+const data = [
+  { name: "Cats", value: 35, color: "#E38627" },
+  { name: "Dogs", value: 40, color: "#C13C37" },
+  { name: "Birds", value: 55, color: "#6A2135" },
+];
+
+export default function Recharts() {
   return React.createElement(
-    PieChart,
-    React.createElement(Pie, {
-      data: [
-        { name: "Cats", value: 35 },
-        { name: "Dogs", value: 40 },
-        { name: "Birds", value: 55 }
-      ],
-      dataKey: "value"
-    })
+    ResponsiveContainer,
+    { aspect: 1 },
+    React.createElement(
+      PieChart,
+      undefined,
+      React.createElement(
+        Pie,
+        {
+          data,
+          dataKey: "value",
+        },
+        data.map((entry, index) =>
+          React.createElement(Cell, {
+            key: `cell-${index}`,
+            fill: entry.color,
+          })
+        )
+      )
+    )
   );
 }
