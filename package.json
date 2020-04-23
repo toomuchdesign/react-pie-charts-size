@@ -20,7 +20,7 @@
   },
   "size-limit": [
     {
-      "path": "src/Recharts.js",
+      "path": "src/import/Recharts.js",
       "ignore": [
         "react",
         "react-dom",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "path": "src/VictoryPie.js",
+      "path": "src/import/VictoryPie.js",
       "ignore": [
         "react",
         "react-dom",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "path": "src/ReactMinimalPieChart.js",
+      "path": "src/import/ReactMinimalPieChart.js",
       "ignore": [
         "react",
         "react-dom",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "path": "src/ApexCharts.js",
+      "path": "src/import/ApexCharts.js",
       "ignore": [
         "react",
         "react-dom",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "path": "src/ReactVis.js",
+      "path": "src/import/ReactVis.js",
       "ignore": [
         "react",
         "react-dom",
