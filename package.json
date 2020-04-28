@@ -20,6 +20,14 @@
   },
   "size-limit": [
     {
+      "path": "src/import/Empty.js",
+      "ignore": [
+        "react",
+        "react-dom",
+        "prop-types"
+      ]
+    },
+    {
       "path": "src/import/Recharts.js",
       "ignore": [
         "react",
